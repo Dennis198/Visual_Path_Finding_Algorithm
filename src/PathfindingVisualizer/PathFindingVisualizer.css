@@ -1,0 +1,35 @@
+.PathFindingVisualizer{
+    height: 100vh;
+    background-color: lightgray;
+    margin: 0 auto;
+}
+
+.PathFindingVisualizer__grid{
+    margin: 20px 0 0;
+}
+
+.row{
+    margin-top: -10px;
+}
+
+.PathFindingVisualizer__buttons{
+    justify-content: space-between;
+}
+
+.PathFindingVisualizer__buttons > button{
+    margin: 5px;
+}
+
+.PathFindingVisualizer__status{
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    height: 20px;
+}
+
+.PathFindingVisualizer__status > h3{
+    margin: 0 auto;
+    width: 40%;
+    border: 2px solid black;
+    border-radius: 25px;
+}
