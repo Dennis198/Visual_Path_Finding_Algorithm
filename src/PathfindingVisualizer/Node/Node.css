@@ -1,16 +1,21 @@
 .node{
     width: 10px;
     height: 10px;
+    margin-left: 1px;
     outline: 1px solid rgb(175, 216, 248);
+    border-radius: 0x;
     display: inline-block;
     background-color: lightblue;
+
 }
 
 .node-finish{
+    border-radius: 10px;
     background-color: red;
 }
 
 .node-start{
+    border-radius: 10px;
     background-color: green;
 }
 

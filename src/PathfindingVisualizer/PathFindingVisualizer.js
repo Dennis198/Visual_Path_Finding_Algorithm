@@ -116,6 +116,7 @@ export default class PathFindingVisualizer extends Component{
         }, 25*visitedNodesinOrder.length+1);
     }
 
+    //Calls the dijkstra Algorithm and get the visited Nodes inorder for the animation
     visualizeDijkstra(){
         const {grid} = this.state;
         const startNode = grid[this.state.startRow][this.state.startCol];
@@ -142,10 +143,10 @@ export default class PathFindingVisualizer extends Component{
         
     //Genereates a Maze
     randomMaze(){
-        //TODO
+        //Todo
     }
 
-    //sets All Nodes isWall=false, except the border
+    //sets All Nodes isWall=false, except the border of the grid
     resetWall(){
         const grid = this.state.grid;
         for(let i=1;i<grid.length-1;i++){
@@ -183,14 +184,14 @@ export default class PathFindingVisualizer extends Component{
     }
 
     render(){
-        const {grid} = this.state;
+        const {grid, isRunning, isFinished, status} = this.state;
         
         return(
             <div className="PathFindingVisualizer">
                       <h1>Pathfinding Algorithm</h1>
-                {!this.state.isRunning ? 
+                {!isRunning ? 
                     <div className="PathFindingVisualizer__buttons">
-                        {!this.state.isFinished ?
+                        {!isFinished ?
                              <>
                                 <Button variant="contained" color="secondary" onClick={() => this.visualizeDijkstra()}>
                                     Start Dijkstra
@@ -204,22 +205,22 @@ export default class PathFindingVisualizer extends Component{
                                 <Button variant="contained" color="secondary" onClick={() => this.resetWall()}>
                                     Reset Walls
                                 </Button> 
-                                <Button disabled variant="contained" color="secondary" onClick={() => this.reset()}>
+                                <Button disabled variant="contained" color="secondary">
                                     Reset
                                 </Button>
                             </>
                         :
                             <>
-                                <Button disabled variant="contained" color="secondary" onClick={() => this.visualizeDijkstra()}>
+                                <Button disabled variant="contained" color="secondary">
                                     Start Dijkstra  
                                 </Button>
-                                <Button disabled variant="contained" color="secondary" onClick={() => this.setRandomStartANDEndOnGrid()}>
+                                <Button disabled variant="contained" color="secondary">
                                     Random Start & End
                                 </Button>
-                                <Button disabled variant="contained" color="secondary" onClick={() => this.randomWall()}>
+                                <Button disabled variant="contained" color="secondary">
                                     Random Walls
                                 </Button>
-                                <Button disabled variant="contained" color="secondary" onClick={() => this.resetWall()}>
+                                <Button disabled variant="contained" color="secondary">
                                     Reset Walls
                                 </Button>
                                 <Button variant="contained" color="secondary" onClick={() => this.reset()}>
@@ -230,25 +231,25 @@ export default class PathFindingVisualizer extends Component{
                     </div>
                 :
                     <div className="PathFindingVisualizer__buttons">
-                        <Button disabled variant="contained" color="secondary" onClick={() => this.visualizeDijkstra()}>
+                        <Button disabled variant="contained" color="secondary">
                             Start Dijkstra
                         </Button>
-                        <Button disabled variant="contained" color="secondary" onClick={() => this.randomWall()}>
+                        <Button disabled variant="contained" color="secondary">
                             Random Start & End  
                         </Button>
-                        <Button disabled variant="contained" color="secondary" onClick={() => this.randomWall()}>
+                        <Button disabled variant="contained" color="secondary">
                             Random Walls
                         </Button>
-                        <Button disabled variant="contained" color="secondary" onClick={() => this.resetWall()}>
+                        <Button disabled variant="contained" color="secondary">
                             Reset Walls
                         </Button>
-                        <Button  disabled variant="contained" color="secondary" onClick={() => this.reset()}>
+                        <Button  disabled variant="contained" color="secondary">
                             Reset
                         </Button>
                     </div>             
                 }
             <div className="PathFindingVisualizer__status">
-            <h3>{this.state.status}</h3>
+            <h3>{status}</h3>
             </div>
 
             <div className="PathFindingVisualizer__grid">
